@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>pelican-test - Hello World</title>
+  <meta name="description" content="pelican-test">
+  <meta name="author" content="Senthil">
+
+  <link rel="stylesheet" href="/theme/css/main.css">   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/theme/img/favicon-32x32.png">   <link rel="icon" type="image/png" sizes="16x16" href="/theme/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/theme/img/apple-touch-icon.png">
+
+
+
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="/">
+        <h2 class="nav-title">pelican-test</h2>
+      </a>
+      <ul>
+             <li><a href="/">Posts</a></li>
+            <li><a href="/tags.html">Tags</a></li>
+            <li><a href="/pages/about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+  <article>
+    <header>
+      <h2>
+        <a href="/hello-world.html" rel="bookmark"
+           title="Permalink to Hello World">Hello World</a></h2>
+      
+    </header>
+    <p>This is the source code of the traditional <em>Hello World</em> program.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// This is a comment, and is ignored by the compiler</span>
+
+<span class="c1">// This is the main function</span>
+<span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Statements here are executed when the compiled binary is called</span>
+
+<span class="w">    </span><span class="c1">// Print text to the console</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><code>println!</code> is a macro that prints text to the console.</p>
+<p>A binary can be generated using the Rust compiler: <code>rustc</code>.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>rustc<span class="w"> </span>hello.rs
+</code></pre></div>
+
+<p><code>rustc</code> will produce a <code>hello</code> binary that can be executed.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./hello
+Hello<span class="w"> </span>World!
+</code></pre></div>
+    <footer>
+      <p>Published: <time datetime="2021-05-01T11:11:00-07:00">
+        Sat 01 May 2021
+      </time></p>
+        <address>
+          By             <a href="/author/rustaceans.html">Rustaceans</a>
+        </address>
+        <p>
+          Category: <a href="/category/programming.html">Programming</a>
+        </p>
+        <p>
+          Tags:
+            <a href="/tag/rust.html">Rust</a>
+            <a href="/tag/sample.html">Sample</a>
+        </p>
+    </footer>
+  </article>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-links">
+        <a href="/archives.html">Archives</a>
+        <a href="/categories.html">Categories</a>
+        <a href="/tags.html">Tags</a>
+      </div>
+      <div class="footer-copyright">
+        <span>Opinions my own. Made with &hearts; using <a href="https://getpelican.com/">Pelican</a> / ✨</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

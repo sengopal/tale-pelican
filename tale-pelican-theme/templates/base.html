@@ -1,0 +1,76 @@
+{% import 'macros.html' as macros %}
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {# Basic SEO, more can be added via Pelican settings or specific templates #}
+  <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+  <meta name="description" content="{% block description %}{{ SITENAME }}{% endblock description %}">
+  <meta name="author" content="{{ AUTHOR }}">
+
+  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/main.css"> {# Assuming main.css is in theme/static/css #}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ SITEURL }}/theme/img/favicon-32x32.png"> {# Assuming assets are in theme/static/img #}
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ SITEURL }}/theme/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ SITEURL }}/theme/img/apple-touch-icon.png">
+
+  {% if FEED_ALL_ATOM %}
+    <link type="application/atom+xml" rel="alternate" href="{{ FEED_ALL_ATOM }}" title="{{ SITENAME }} Atom Feed" />
+  {% endif %}
+  {% if FEED_ALL_RSS %}
+    <link type="application/rss+xml" rel="alternate" href="{{ FEED_ALL_RSS }}" title="{{ SITENAME }} RSS Feed" />
+  {% endif %}
+
+  {% if GOOGLE_ANALYTICS_ID %}
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <script>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
+      ga('create', '{{ GOOGLE_ANALYTICS_ID }}', 'auto');
+      ga('send', 'pageview');
+    </script>
+  {% endif %}
+
+  {% include 'partials/katex.html' %}
+</head>
+
+<body>
+  {% block header %}
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="{{ SITEURL }}/">
+        <h2 class="nav-title">{{ SITENAME }}</h2>
+      </a>
+      <ul>
+        {% if MENUITEMS %} {# Custom menu items defined in pelicanconf.py #}
+          {% for title, link in MENUITEMS %}
+            <li><a href="{{ link }}">{{ title }}</a></li>
+          {% endfor %}
+        {% else %}
+          <li><a href="{{ SITEURL }}/">Posts</a></li>
+          <li><a href="{{ SITEURL }}/tags.html">Tags</a></li> {# Pelican's default tags page #}
+          <li><a href="{{ SITEURL }}/pages/about.html">About</a></li> {# Assuming 'about' is a static page named about.md #}
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+  {% endblock header %}
+
+  <main>
+    {% block content %}{% endblock content %}
+  </main>
+
+  {% block footer %}
+  <footer>
+    <div class="footer-container">
+      <a href="#" class="top-link">Top &rarr;</a>
+      <div class="footer-copyright">
+        <span>© {{ moment.now().strftime('%Y') }} {{ AUTHOR }}. Made with <a href="https://getpelican.com/">Pelican</a> / <a href="https://github.com/aaronding/tale-pelican">Tale-Pelican</a> theme.</span>
+      </div>
+    </div>
+  </footer>
+  {% endblock footer %}
+</body>
+</html>

@@ -1,0 +1,6 @@
+The Pelican site has been successfully generated in the `pelican_project/output` directory.
+
+To review the theme, please open the following file in your web browser:
+`/Users/sengopal/build/code/tale-pelican/pelican_project/output/index.html`
+
+If you make changes to the theme files (e.g., in `tale-pelican-theme/scss/` or `tale-pelican-theme/templates/`), you can re-run `make devserver` from the `pelican_project` directory to regenerate the site with your changes. Note that this command might not keep a long-running process, but it will update the output files.

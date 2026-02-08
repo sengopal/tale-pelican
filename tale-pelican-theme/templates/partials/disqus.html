@@ -1,0 +1,13 @@
+{% if DISQUS_SITENAME and ((article is defined and article.metadata.disqus) or (page is defined and page.metadata.disqus)) %}
+	<script src="{{ SITEURL }}/theme/js/disqusLoader.js"></script>
+	<div id="disqus_thread">
+		<h3>{{ DISQUS_DISCUSSION_TEXT | default("Discussion and feedback") }}</h3>
+	</div>
+	<div class="disqus"></div>
+	<script>
+		disqusLoader('.disqus', {
+			scriptUrl: 'https://{{ DISQUS_SITENAME }}.disqus.com/embed.js'
+		});
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+{% endif %}

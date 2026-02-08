@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="notfound">
+	<h1 class="notfound-error">{{ P404_TITLE | default("404: Page not found") }}</h1>
+	<div class="notfound-line"></div>
+	<p class="notfound-message">
+		{{ P404_INFO | default("Oops! We can't seem to find the page you are looking for.") }}
+		{{ P404_BACK_HOME_TEXT_START | default("Let's") }}
+		<a href="{{ SITEURL }}/">{{ P404_BACK_HOME_TEXT_LINK | default("head back home") }}</a>{{ P404_BACK_HOME_TEXT_END | default(".") }}
+	</p>
+	<p></p>
+</div>
+{% endblock content %}

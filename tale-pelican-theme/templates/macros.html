@@ -1,0 +1,30 @@
+{% macro time_range() -%}
+  {% set start_year = FOOTER_START_YEAR | default('') %}
+  {% set end_year = FOOTER_END_YEAR | default('') %}
+
+  {% if start_year and end_year and start_year != end_year %}
+    {{ start_year }} - {{ end_year }}
+  {% elif start_year %}
+    {{ start_year }}
+  {% endif %}
+{%- endmacro %}
+
+
+{% macro article_summary(article) -%}
+<a href="{{ SITEURL }}/{{ article.url }}" class="catalogue-item">
+  <div>
+    {# Pelican doesn't have a direct 'pinned' concept, omitting for now #}
+    <time datetime="{{ article.date.isoformat() }}" class="catalogue-time">{{ article.date | strftime('%B %e, %Y') }}</time>
+    <h1 class="catalogue-title">{{ article.title }}</h1>
+    <div class="catalogue-line"></div>
+    <p>
+      {%- if article.summary -%}
+      {{ article.summary | striptags | truncate(280) }}
+      {% else -%}
+      {# Fallback to content snippet if no summary #}
+      {{ article.content | striptags | truncate(280) }}
+      {%- endif -%}
+    </p>
+  </div>
+</a>
+{%- endmacro %}

@@ -1,0 +1,24 @@
+{% extends "base.html"%}
+
+{% block content %}
+  <div class="post">
+  	<div class="post-info">
+  		{% if page.author -%}
+  			<span>{{ WRITTEN_BY_TEXT | default("Written by") }}</span> {{ page.author }}<br>
+  		{% elif AUTHOR -%}
+  			<span>{{ WRITTEN_BY_TEXT | default("Written by") }}</span> {{ AUTHOR }}<br>
+  		{%- endif %}
+      {% if page.date %}
+  		<span>{{ ON_TEXT | default("on")}}&nbsp;</span><time datetime="{{ page.date.isoformat() }}">{{ page.date | strftime('%B %e, %Y') }}</time>
+      {% endif %}
+  	</div>
+  	<h1 class="post-title">{{ page.title }}</h1>
+  	<div class="post-line"></div>
+  	{{ page.content }}
+  </div>
+
+	{% include "partials/disqus.html" %}
+
+  {# Pelican does not inherently support page.later/page.earlier for generic static pages #}
+  {# Omitting pagination for static pages for now #}
+{% endblock content %}

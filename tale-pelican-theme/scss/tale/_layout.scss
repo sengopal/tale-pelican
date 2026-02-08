@@ -1,0 +1,113 @@
+.container {
+  margin: 0 auto;
+  max-width: 800px;
+  width: 80%;
+}
+
+main,
+footer,
+.nav-container {
+  display: block;
+  margin: 0 auto;
+  max-width: 800px;
+  width: 80%;
+}
+
+.nav {
+  box-shadow: 0 2px 2px -2px $shadow-color;
+  overflow: auto;
+
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+  }
+
+  &-title {
+    @include transition(all .2s ease-out);
+    color: $default-color;
+    font-family: $serif-primary; // Use serif font for title
+    font-size: 2rem; // Larger title
+    font-weight: bold;
+    margin: 0;
+    padding-right: 0;
+
+    &:hover,
+    &:focus {
+      opacity: .6;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    @include transition(all .2s ease-out);
+    color: $default-color;
+    display: inline-block;
+    opacity: .6;
+    padding: 0 0 0 2rem; // Spacing on the left
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+
+  a {
+    color: $default-color;
+    font-family: $sans-serif; // Use sans-serif for nav links
+    font-size: 1rem; // Smaller nav links
+  }
+}
+
+// Remove the media query for nav, as flexbox handles responsiveness
+// @media (min-width: 600px) {
+//   .nav {
+//     &-container {
+//       text-align: left;
+//     }
+
+//     ul {
+//       bottom: 0;
+//       position: absolute;
+//       right: 0;
+//     }
+//   }
+// }
+
+footer {
+  font-family: $serif-secondary;
+  padding: 3rem 0;
+  text-align: center;
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .top-link {
+    color: $default-tint;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem; // Spacing below the "Top" link
+    font-size: 0.9rem;
+    font-style: italic; // Matching the meta-info style
+  }
+
+  .footer-copyright {
+    font-size: 0.8rem;
+    color: $default-tint;
+    margin-top: 0; // Remove previous margin, adjust as needed
+
+    a {
+      color: $default-color; // Match default link color
+      text-decoration: underline; // Underline for copyright links
+    }
+  }
+}
